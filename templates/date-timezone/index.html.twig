@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_row(form.date) }}
+    {{ form_row(form.timezone) }}
+    {{ form_end(form) }}
+    {% if dateInfo %}
+        <div class="result-container">
+            The timezone {{ dateInfo.timezone }} has {{ dateInfo.offset >= 0 ? '+' ~ dateInfo.offset : dateInfo.offset }} minutes offset to UTC on the given day at noon.<br />
+            February in this year has {{ dateInfo.february_days }} days.<br />
+            The specified month ({{ dateInfo.month_name }}) has {{ dateInfo.month_days }} days.
+        </div>
+    {% endif %}
+
+{% endblock %}

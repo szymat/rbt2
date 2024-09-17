@@ -23,7 +23,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/post/{id}", name="app_post_show")
+     * @Route("/post/{id<\d+>}", name="app_post_show")
      */
     public function show(PostManager $postManager, $id): Response
     {
